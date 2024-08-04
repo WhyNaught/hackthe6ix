@@ -1,6 +1,7 @@
 import './App.css';
 import Caesar from './Ciphers/Caesar';
 import AtBash from './Ciphers/AtBash';
+import Num from './Ciphers/Num';
 import {useState} from 'react';
 
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         <option>Caesar Cipher</option>
         <option>RSA</option>
         <option>AtBash</option>
+        <option>Num</option>
       </select>
       <button className = "submit-button" onClick = {() => submitInput()}>Submit Encrypted Text!</button>
       <h1>Your Decrypted Text Using {algo}:</h1>
@@ -40,6 +42,7 @@ export default function App() {
         {
           algo === "Caesar Cipher" ? Caesar(cipherText) :
           algo === "AtBash" ? AtBash(cipherText) :
+          algo === "Num" ? Num(cipherText) : 
           cipherText
         }
       </div>
