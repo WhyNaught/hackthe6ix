@@ -2,6 +2,7 @@ import './App.css';
 import Caesar from './Ciphers/Caesar';
 import AtBash from './Ciphers/AtBash';
 import Num from './Ciphers/Num';
+import RSA from './Ciphers/RSA';
 import {useState} from 'react';
 
 export default function App() {
@@ -26,11 +27,10 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className = "content">
       <input className = "text" type = "text" value = {input} onChange = {() => handleInputChange(event)}/>
-      <select  value = {tempAlgo} onChange = {() => handleAlgoChange(event)}>
+      <select  className = 'selector 'value = {tempAlgo} onChange = {() => handleAlgoChange(event)}>
         <option>Select a Cipher</option>
-        <option>AI</option>
         <option>Caesar Cipher</option>
         <option>RSA</option>
         <option>AtBash</option>
@@ -43,9 +43,10 @@ export default function App() {
           algo === "Caesar Cipher" ? Caesar(cipherText) :
           algo === "AtBash" ? AtBash(cipherText) :
           algo === "Num" ? Num(cipherText) : 
+          algo === "RSA" ? RSA(cipherText) : 
           cipherText
         }
       </div>
-    </>
+    </div>
   )
 }
